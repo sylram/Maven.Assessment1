@@ -2,6 +2,7 @@ package com.zipcodewilmington.assessment1.part2;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -31,15 +32,19 @@ public class ArrayUtils {
      */
     public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
 
-        ArrayList<Object> arraytoList = new ArrayList<>();
-        arraytoList.remove(objectToRemove);
-        Object[] newObject = new Object[arraytoList.size()];
-        newObject = arraytoList.toArray(newObject);
+//        ArrayList<Object> arraytoList = new ArrayList<>();
+//        arraytoList.remove(objectToRemove);
+//        Object[] newObject = new Object[arraytoList.size()];
+//        newObject = arraytoList.toArray(newObject);
+
+        int valuePosition = Arrays.asList(objectArray).indexOf(objectToRemove);
+        List<Object> ListArray = new ArrayList<Object>(Arrays.asList(objectArray));
+        ListArray.remove(valuePosition);
+        Object[] nuevo = new Object[objectArray.length-1];
+        nuevo= ListArray.toArray(nuevo);
 
 
-
-
-        return newObject ;
+        return nuevo ;
     }
 
     /**
@@ -58,6 +63,13 @@ public class ArrayUtils {
      * given an array of objects, named `objectArray` return the least frequently occuring object in the array
      */
     public static Object getLeastCommon(Object[] objectArray) {
+
+        HashMap<Object,Object> newObjects= new HashMap<>();
+
+        for (int i = 0; i <objectArray.length ; i++)
+            if (newObjects.containsKey(i)) {
+                newObjects.put(i, newObjects.get(i));
+            }
         return null;
     }
 
@@ -68,7 +80,7 @@ public class ArrayUtils {
      * given two arrays `objectArray` and `objectArrayToAdd`, return an array containing all elements in `objectArray` and `objectArrayToAdd`
      */
     public static Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
-        List<Object> merge = new ArrayList<Object>();
+        ArrayList<Object> merge = new ArrayList<Object>();
         for (int i = 0; i <objectArray.length-1 ; i++) {
             merge.add(objectArray[i]);
         }

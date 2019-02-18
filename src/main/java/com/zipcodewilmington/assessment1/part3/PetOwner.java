@@ -19,7 +19,8 @@ public class PetOwner {
 
     public PetOwner(String name, Pet... pets) {
         this.name = name;
-        this.pet = pet;
+
+
         this.pets = new ArrayList<>();
 
 
@@ -53,11 +54,13 @@ public class PetOwner {
      * @return the age of the Pet object whose age field is the lowest amongst all Pets in this class
      */
     public Integer getYoungetPetAge() {
-//        String[] names = new String[pets.size()];
-//        names = pets.toArray(names);
-//        Integer[] gettingAge = new Integer[names.length];
-//        for (int i = 0; i < names.length; i++) {
-//            gettingAge[i] = names[i].getAge
+
+        Integer[] ages = new Integer[pets.size()];
+        for (int i = 0; i <pets.size() ; i++) {
+            ages[i]=pets.get(i).getAge();
+        }
+
+
 
 
         return null;

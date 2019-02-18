@@ -34,7 +34,11 @@ public class Dog extends Pet {
      * name is DogName
      * age is 0
      */
+
     public Dog() {
+        name = "Dog name";
+        age =0;
+
     }
 
     /**
