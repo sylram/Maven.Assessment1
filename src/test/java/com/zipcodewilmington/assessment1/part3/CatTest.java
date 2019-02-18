@@ -17,6 +17,7 @@ public class CatTest {
 
         // When
         String actualName = cat.getName();
+        System.out.println(actualName);
         Integer actualAge = cat.getAge();
         PetOwner actualOwner = cat.getOwner();
 
